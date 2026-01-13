@@ -11,15 +11,14 @@ body {
 main {
     background-color: white;
     width: 70%;
-    margin: 0 auto 1rem auto;
-    padding: 0 1rem 2rem 1rem;
+    margin: .5rem auto 1rem auto;
+    padding: 1rem 1rem 2rem 1rem;
 }
 
 header {
     background-color: lightgrey;
     border-radius: .25rem;
     padding: 2rem 1rem;
-    margin-bottom: 2rem;
 }
 
 header img {
@@ -27,7 +26,7 @@ header img {
     max-width: 200px;
 }
 
-contact-button {
+#contact-button {
     border: none;
     background-color: darkgreen;
     border-color: darkgreen;
@@ -35,5 +34,23 @@ contact-button {
     border-radius: .25rem;
     text-decoration: none;
     color: white;
-    
+
+}
+
+legend {
+    color: darkgreen;
+    font-variant: small-caps;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+}
+
+fieldset {
+    border: 1px solid darkgreen;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    padding-bottom: .2rem;
 }
