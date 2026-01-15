@@ -52,12 +52,46 @@
         <!-- Select Toppings -->
         <fieldset>
             <legend>Select Toppings</legend>
+            <label for="pepperoni">
+                <input type="checkbox" id="pepperoni" name="toppings[]" value="pepperoni"> Pepperoni 
+            </label>
+            <label for="mushrooms">
+                <input type="checkbox" id="mushrooms" name="toppings[]" value="mushrooms"> Mushrooms 
+            </label>
+            <label for="artichokes">
+                <input type="checkbox" id="artichokes" name="toppings[]" value="artichokes"> Artichokes 
+            </label>
+            <label for="tomatoes">
+                <input type="checkbox" id="tomatoes" name="toppings[]" value="tomatoes"> Tomatoes 
+            </label>
+            <label for="olives">
+                <input type="checkbox" id="Olives" name="toppings[]" value="Olives"> Olives 
+            </label>
+            <label for="bacon">
+                <input type="checkbox" id="bacon" name="toppings[]" value="bacon"> Bacon 
+            </label>
+
         </fieldset>
 
         <fieldset>
             <legend>Pizza Size</legend>
+            <select id="size" name="size">
+                <option value="none">-- Select a size --</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
         </fieldset>
 
+
+        <!-- Comment Field -->
+         <label for="comment">Comments/Instructions: </label>
+         <textarea rows="5" id="comment" name="comment"></textarea>
+
+         <!-- Discounts -->
+          <label for="discounts">
+            <input type="checkbox" id="discounts" name="discounts" checked>Sign me up for discounts!
+          </label>
         <!-- Submit Button -->
         <button type="submit" id="order-button"> Place Order</button>
     </form>
