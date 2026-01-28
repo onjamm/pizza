@@ -1,68 +1,74 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: burlywood;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  background-color: burlywood;
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
 
 main {
-    background-color: white;
-    width: 70%;
-    margin: .5rem auto 1rem auto;
-    padding: 1rem 1rem 2rem 1rem;
+  background-color: white;
+  width: 70%;
+  margin: 0.5rem auto 1rem auto;
+  padding: 1rem 1rem 2rem 1rem;
 }
 
 header {
-    background-color: lightgrey;
-    border-radius: .25rem;
-    padding: 2rem 1rem;
+  background-color: lightgrey;
+  border-radius: 0.25rem;
+  padding: 2rem 1rem;
 }
 
 header img {
-    float: right;
-    max-width: 200px;
+  float: right;
+  max-width: 200px;
 }
 
 #contact-button {
-    border: none;
-    background-color: darkgreen;
-    border-color: darkgreen;
-    padding: 0.5rem 0.75rem;
-    border-radius: .25rem;
-    text-decoration: none;
-    color: white;
-
+  border: none;
+  background-color: darkgreen;
+  border-color: darkgreen;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  color: white;
 }
 
 legend {
-    color: darkgreen;
-    font-variant: small-caps;
-    font-size: 1.5rem;
-    padding: 0 1rem;
+  color: darkgreen;
+  font-variant: small-caps;
+  font-size: 1.5rem;
+  padding: 0 1rem;
 }
 
 fieldset {
-    border: 1px solid darkgreen;
-    padding: 1rem;
-    margin-bottom: 1.25rem;
+  border: 1px solid darkgreen;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 label {
-    display: block;
-    padding-bottom: .2rem;
+  display: block;
+  padding-bottom: 0.2rem;
 }
 
-input[type="text"], textarea, select {
-    width: 100%;
-    border: 1px solid darkgreen;
-    border-radius: .25rem;
-    margin-bottom: 1rem;
-    padding: .75 rem;
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  border: 1px solid darkgreen;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0.75 rem;
 }
 
 select {
-    font-size: 1.04rem;
+  font-size: 1.04rem;
+}
+
+.err {
+  display: none;
+  color: darkred;
 }
