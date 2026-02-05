@@ -9,10 +9,10 @@
     <link rel="icon" href="imgs/logo.png" />
 
     <!-- Stylesheet-->
-    <link rel="stylesheet" href="pizza-styles.css" />
+    <link rel="stylesheet" href="styles/pizza-styles.css" />
 
     <!-- JavaScript-->
-    <script src="pizza.js" defer></script>
+    <script src="js/pizza.js" defer></script>
   </head>
   <body>
     <main>
@@ -22,10 +22,11 @@
         <h2>Serving GRC Students for 50 Years</h2>
         <hr />
         <p>Come check us out at Auburn Center</p>
-        <a id="contact-button" href="#" role="button"> Contact Us</a>
+        <a id="contact-button" href="/contact-us" role="button"> Contact Us</a>
       </header>
 
-      <form id="pizza-form" action="#" method="get">
+      <!-- Post method is more secure than get, get sends through the url, post creates a seperate transmission -->
+      <form id="pizza-form" action="/submit-order" method="post">
         <!-- Contact Info -->
         <fieldset>
           <legend>Contact Info</legend>

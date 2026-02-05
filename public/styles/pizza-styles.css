@@ -64,6 +64,10 @@ select {
   padding: 0.75 rem;
 }
 
+input[type="text"], select {
+  height: 40px;
+}
+
 select {
   font-size: 1.04rem;
 }
