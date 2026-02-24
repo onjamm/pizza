@@ -7,17 +7,23 @@ const app = express();
 //Define a port number where server will listen
 const PORT = 3000;
 
+//Enable static file serving -- tells express where to look for the static files
+app.use(express.static('public'));
+
 
 // "Middleware" that allows express to read 
 // form data and store it in req.body
 app.use(express.urlencoded({ extended: true }));
+
+//Set EJS as the view engine
+app.set('view engine', 'ejs');
 
 // Create a temp array to store orders
 const orders = [];
 
 //Define our main route (default) ('/') (the root directory of our project)
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.render('home');
 });
 
 //Submit order route
@@ -37,27 +43,26 @@ app.post('/submit-order', (req, res) => {
     //add order object to orders array
     orders.push(order);
     
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
+    res.render('confirmation', { order });
 });
 
 //admin route
 app.get('/admin', (req, res) => {
-    res.send(orders);
+    res.render('admin', {orders});
 })
 
 
 //contact route
 app.get('/contact-us', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/contact.html`);
+    res.render('contact');
 })
 
 //confirmation route
 app.get('/thank-you', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+    res.render('confirmation');
 })
 
-//Enable static file serving -- tells express where to look for the static files
-app.use(express.static('public'));
+
 
 //Start server and listen on the designated part
 app.listen(PORT, () => {
