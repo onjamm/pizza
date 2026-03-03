@@ -52,21 +52,25 @@ app.get('/', (req, res) => {
 });
 
 //Submit order route
-app.post('/submit-order', (req, res) => {
+app.post('/submit-order', async(req, res) => {
+    const order = req.body;
     //create a JSON object to store the order data
-    const order = {
-        fname: req.body.fname,
-        lname: req.body.lname,
-        email: req.body.email,
-        method: req.body.method,
-        toppings: req.body.toppings ? req.body.toppings : "none",
-        size: req.body.size,
-        comment: req.body.comment,
-        timestamp: new Date()
-    };
+    const params = [
+        order.fname,
+        order.lname,
+        order.email,
+        order.method,
+        order.size,
+        Array.isArray(order.toppings) ? order.toppings.join(", ") : "none"
+    ];
+
+    //insert a new order into the database
+    const sql = `INSERT INTO orders (fname, lname, email, method, size, toppings) VALUES (?, ?, ?, ?, ?, ?)`;
+
+    const result = await pool.execute(sql, params);
 
     //add order object to orders array
-    orders.push(order);
+    orders.push(params);
     
     res.render('confirmation', { order });
 });
