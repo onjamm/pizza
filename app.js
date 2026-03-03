@@ -1,5 +1,12 @@
 //Import the express model (Express is a web framework, that makes it easier to create applications)
 import express from 'express';
+import dotenv from 'dotenv';
+import mysql2 from 'mysql2';
+
+// Load environment variables from .env
+dotenv.config();
+console.log(process.env.DB_HOST);
+//connection pool, like a bucket of connections
 
 //Create an express application
 const app = express();
@@ -21,6 +28,25 @@ app.set('view engine', 'ejs');
 // Create a temp array to store orders
 const orders = [];
 
+// Create a pool (bucket) of database connections
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
+//Database test Root
+app.get('/db-test', async(req, res) => {
+    
+    try {
+        const pizza_orders = await pool.query('SELECT * FROM orders');
+        res.send(pizza_orders[0]);
+    } catch (err){
+        console.error('Database error: ', err);
+    }
+});
 //Define our main route (default) ('/') (the root directory of our project)
 app.get('/', (req, res) => {
     res.render('home');
