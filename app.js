@@ -5,7 +5,7 @@ import mysql2 from 'mysql2';
 
 // Load environment variables from .env
 dotenv.config();
-console.log(process.env.DB_HOST);
+// console.log(process.env.DB_HOST);
 //connection pool, like a bucket of connections
 
 //Create an express application
@@ -39,12 +39,11 @@ const pool = mysql2.createPool({
 
 //Database test Root
 app.get('/db-test', async(req, res) => {
-    
     try {
         const pizza_orders = await pool.query('SELECT * FROM orders');
         res.send(pizza_orders[0]);
     } catch (err){
-        console.error('Database error: ', err);
+        console.error(err);
     }
 });
 //Define our main route (default) ('/') (the root directory of our project)
@@ -73,20 +72,26 @@ app.post('/submit-order', (req, res) => {
 });
 
 //admin route
-app.get('/admin', (req, res) => {
-    res.render('admin', {orders});
-})
+app.get('/admin', async(req, res) => {
+
+    // Read all orders from the database 
+    //newest first
+    const orders = await pool.query('SELECT * FROM orders ORDER BY timestamp DESC');
+    console.log(orders);
+
+    res.render('admin', { orders: orders[0] });
+});
 
 
 //contact route
 app.get('/contact-us', (req, res) => {
     res.render('contact');
-})
+});
 
 //confirmation route
 app.get('/thank-you', (req, res) => {
     res.render('confirmation');
-})
+});
 
 
 
