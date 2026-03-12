@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/pizza-styles.css" />
 
     <!-- JavaScript-->
-    <script src="js/pizza.js" defer></script>
+    <!-- <script src="js/pizza.js" defer></script> -->
   </head>
   <body>
     <main>
@@ -24,6 +24,13 @@
         <p>Come check us out at Auburn Center</p>
         <a id="contact-button" href="/contact-us" role="button"> Contact Us</a>
       </header>
+
+      <!-- Display form errors, if they exist -->
+       <% if (typeof errors != 'undefined') { %>
+        <% errors.forEach(error => { %>
+          <p><%=error%></p>
+        <% }); %> 
+      <% } %>
 
       <!-- Post method is more secure than get, get sends through the url, post creates a seperate transmission -->
       <form id="pizza-form" action="/submit-order" method="post">
